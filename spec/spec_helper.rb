@@ -12,8 +12,11 @@ require "freefeed"
 require "rspec"
 require "pry"
 require "webmock/rspec"
+require "support/helpers"
 
 RSpec.configure do |config|
+  config.include Helpers
+
   config.color = true
 
   config.expect_with :rspec do |c|
