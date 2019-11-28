@@ -32,7 +32,8 @@ module Freefeed
       # TODO: Populate error object with details
       error = Freefeed::Error::ERRORS[response.code]
       raise(error) if error
-      response.body
+
+      response
     end
 
     private
