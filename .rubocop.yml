@@ -9,3 +9,6 @@ AllCops:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: no_comma
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
