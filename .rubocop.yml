@@ -12,3 +12,6 @@ Style/TrailingCommaInHashLiteral:
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Enabled: false

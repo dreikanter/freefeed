@@ -2,6 +2,6 @@
 
 require "bundler/setup"
 require "pry"
-require "callee"
+require "freefeed"
 
 Pry.start
