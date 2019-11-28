@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Freefeed::Client do
+require "spec_helper"
+
+describe Freefeed::Client do
   describe "config" do
     subject(:config) { described_class.config }
 
