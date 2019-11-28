@@ -38,7 +38,15 @@ module Freefeed
     private
 
     def headers
-      {}
+      {
+        accept: "*/*",
+        authorization: "Bearer #{Freefeed::Client.config.token}",
+        user_agent: user_agent
+      }
+    end
+
+    def user_agent
+      "#{Freefeed::Client.name}/#{Freefeed::VERSION}"
     end
 
     # TODO: Timeout settinf
