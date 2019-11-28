@@ -1,0 +1,11 @@
+---
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'bin/*'
+    - 'Gemfile'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: no_comma
