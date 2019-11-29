@@ -11,12 +11,13 @@ module Freefeed
     param :client
     param :request_method
     param :path
-    option :params, optional: true, default: -> { {} }
+    param :options, optional: true, default: -> { {} }
+    option :auth, optional: true, default: -> { true }
 
     def call
       response = http_client
         .headers(headers)
-        .public_send(request_method, uri, params)
+        .public_send(request_method, uri, request_params)
 
       error = Freefeed::Error.for(response)
       raise(error) if error
@@ -29,12 +30,24 @@ module Freefeed
       @uri ||= URI.parse(client.base_url + path).to_s
     end
 
+    def request_params
+      options[:params] || {}
+    end
+
     def headers
+      return common_headers unless authenticate?
+      common_headers.merge(authorization: "Bearer #{client.token}")
+    end
+
+    def common_headers
       {
         accept: "*/*",
-        authorization: "Bearer #{client.token}",
-        user_agent: user_agent
+        user_agent: "#{Freefeed::Client.name}/#{Freefeed::VERSION}"
       }
+    end
+
+    def authenticate?
+      auth && !!client.token
     end
 
     def user_agent
