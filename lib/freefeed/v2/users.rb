@@ -6,7 +6,7 @@ module Freefeed
   module V2
     module Users
       def whoami
-        Freefeed::Request.new(:get, "/v2/users/whoami").call.parse
+        authenticated_request(:get, "/v2/users/whoami")
       end
     end
   end
