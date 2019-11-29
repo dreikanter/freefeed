@@ -4,6 +4,7 @@ require "logger"
 require "dry-initializer"
 require "freefeed/constants"
 require "freefeed/v2/users"
+require "freefeed/v2/timelines"
 require "freefeed/version"
 
 module Freefeed
@@ -11,9 +12,10 @@ module Freefeed
     extend Dry::Initializer
 
     include Freefeed::V2::Users
+    include Freefeed::V2::Timelines
 
-    option :token, optional: false
-    option :logger, optional: true, default: -> { Freefeed::LOGGER }
-    option :base_url, optional: true, default: -> { Freefeed::BASE_URL }
+    option :token
+    option :logger, default: -> { Freefeed::LOGGER }
+    option :base_url, default: -> { Freefeed::BASE_URL }
   end
 end
