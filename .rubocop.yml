@@ -26,3 +26,6 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
     - "*.gemspec"
+
+Style/DoubleNegation:
+  Enabled: false
