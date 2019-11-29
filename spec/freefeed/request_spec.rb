@@ -7,9 +7,15 @@ describe Freefeed::Request do
 
   let(:request_method) { :get }
   let(:path) { "/example" }
-  let(:options) { {} }
 
-  let(:expected_url) { "https://freefeed.net/example" }
+  let(:options) do
+    {
+      base_url: "https://george.freefeed.net",
+      token: "Banana"
+    }
+  end
+
+  let(:expected_url) { "https://george.freefeed.net/example" }
 
   context "when respose is successfull" do
     before { stub_request(:get, expected_url).to_return(body: {}.to_json) }
