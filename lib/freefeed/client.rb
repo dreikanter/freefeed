@@ -13,7 +13,7 @@ module Freefeed
     include Freefeed::V2::Users
 
     option :token, optional: false
-    option :logger, optional: true, default: -> { Logger.new(STDOUT) }
+    option :logger, optional: true, default: -> { Freefeed::LOGGER }
     option :base_url, optional: true, default: -> { Freefeed::BASE_URL }
   end
 end
