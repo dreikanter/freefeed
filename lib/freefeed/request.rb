@@ -8,12 +8,10 @@ module Freefeed
   class Request
     extend Dry::Initializer
 
+    param :client
     param :request_method
     param :path
-    option :base_url, optional: true, default: -> { Freefeed::BASE_URL }
     option :params, optional: true, default: -> { {} }
-    option :logger, optional: true, default: -> { Freefeed::LOGGER }
-    option :token, optional: true
 
     def call
       response = http_client
@@ -28,13 +26,13 @@ module Freefeed
     private
 
     def uri
-      @uri ||= URI.parse(base_url + path).to_s
+      @uri ||= URI.parse(client.base_url + path).to_s
     end
 
     def headers
       {
         accept: "*/*",
-        authorization: "Bearer #{token}",
+        authorization: "Bearer #{client.token}",
         user_agent: user_agent
       }
     end
@@ -46,7 +44,7 @@ module Freefeed
     # TODO: Timeout settinf
     # TODO: Proxy setting
     def http_client
-      HTTP.use(logging: { logger: logger })
+      HTTP.use(logging: { logger: client.logger })
     end
   end
 end
