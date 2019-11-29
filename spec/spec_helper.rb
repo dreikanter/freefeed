@@ -16,10 +16,26 @@ require "support/helpers"
 
 RSpec.configure do |config|
   config.include Helpers
-
   config.color = true
+  config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+RSpec.shared_context "client" do
+  subject(:client) { Freefeed::Client.new(params) }
+
+  let(:params) do
+    {
+      logger: logger,
+      token: token,
+      base_url: base_url
+    }
+  end
+
+  let(:token) { ENV["FREEFEED_TOKEN"] || "[Token]" }
+  let(:logger) { Logger.new(STDOUT) }
+  let(:base_url) { "https://george.freefeed.net" }
 end
