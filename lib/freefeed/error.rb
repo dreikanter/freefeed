@@ -33,5 +33,10 @@ module Freefeed
       503 => Freefeed::Error::ServiceUnavailable,
       504 => Freefeed::Error::GatewayTimeout
     }.freeze
+
+    # TODO: Populate error object with details
+    def self.for(response)
+      ERRORS[response.code]
+    end
   end
 end
