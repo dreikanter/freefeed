@@ -2,6 +2,7 @@
 
 require "logger"
 require "dry-initializer"
+require "freefeed/constants"
 require "freefeed/v2/users"
 require "freefeed/version"
 
@@ -13,6 +14,6 @@ module Freefeed
 
     option :token, optional: false
     option :logger, optional: true, default: -> { Logger.new(STDOUT) }
-    option :base_url, optional: true, default: -> { "https://freefeed.net" }
+    option :base_url, optional: true, default: -> { Freefeed::BASE_URL }
   end
 end
