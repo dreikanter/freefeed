@@ -5,6 +5,20 @@ require "pry"
 
 PATH = File.join(File.expand_path("..", __dir__), "spec/fixtures/files")
 
+# Object fields to replace with generic values:
+#
+# users
+#   username
+#   screenName
+#   description
+#
+# posts
+#   body
+#
+# comments
+#   body
+
+
 def purge_user(data, index)
   data["username"] = "user#{index}"
   data["screenName"] = "User ##{index}"
@@ -21,6 +35,7 @@ Dir.glob("#{PATH}/**/*.json").each do |file_name|
   FileUtils.mv(file_name, backup_copy)
 
   data = JSON.parse(File.read(backup_copy))
+  next unless data.is_a?(Hash)
 
   (data["users"] || []).each_with_index { |user, index| purge_user(user, index) }
   (data["admins"] || []).each_with_index { |user, index| purge_user(user, index) }

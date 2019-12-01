@@ -19,9 +19,7 @@ describe Freefeed::V2::Users do
           )
           .to_return(
             body: file_fixture("v2/users/whoami.json"),
-            headers: {
-              "Content-Type" => "application/json"
-            }
+            headers: { "Content-Type" => "application/json" }
           )
       end
 
@@ -40,4 +38,85 @@ describe Freefeed::V2::Users do
       it { expect { response }.to raise_error(Freefeed::Error::Unauthorized) }
     end
   end
+
+  describe "#blocked_by_me" do
+    subject(:response) { client.blocked_by_me }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/users/blockedByMe")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/users/blocked_by_me.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Array) }
+  end
+
+  describe "#unread_directs_number" do
+    subject(:response) { client.unread_directs_number }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/users/getUnreadDirectsNumber")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/users/unread_directs_number.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#unread_notifications_number" do
+    subject(:response) { client.unread_notifications_number }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/users/getUnreadNotificationsNumber")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/users/unread_notifications_number.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#mark_all_directs_as_read" do
+    subject(:response) { client.mark_all_directs_as_read }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/users/markAllDirectsAsRead")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/users/mark_all_directs_as_read.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#mark_all_notifications_as_read" do
+    subject(:response) { client.mark_all_notifications_as_read }
+
+    before do
+      stub_request(:post, "#{base_url}/v2/users/markAllNotificationsAsRead")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/users/mark_all_notifications_as_read.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
 end
