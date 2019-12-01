@@ -10,17 +10,10 @@ describe Freefeed::V2::Timelines do
 
     before do
       stub_request(:get, "#{base_url}/v2/bestof")
-        .with(
-          headers: {
-            "Accept" => "*/*",
-            "Authorization" => "Bearer #{token}"
-          }
-        )
+        .with(headers: { "Authorization" => "Bearer #{token}" })
         .to_return(
           body: file_fixture("v2/timelines/best_of.json"),
-          headers: {
-            "Content-Type" => "application/json"
-          }
+          headers: { "Content-Type" => "application/json" }
         )
     end
 
@@ -32,17 +25,96 @@ describe Freefeed::V2::Timelines do
     subject(:response) { client.everything }
 
     before do
-      stub_request(:get, "https://george.freefeed.net/v2/everything")
-        .with(
-          headers: {
-            "Accept" => "*/*"
-          }
-        )
+      stub_request(:get, "#{base_url}/v2/everything")
         .to_return(
           body: file_fixture("v2/timelines/everything.json"),
-          headers: {
-            "Content-Type" => "application/json"
-          }
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#own_timeline" do
+    context "with no filter" do
+      subject(:response) { client.own_timeline }
+
+      before do
+        stub_request(:get, "#{base_url}/v2/timelines/home")
+          .with(headers: { "Authorization" => "Bearer #{token}" })
+          .to_return(
+            body: file_fixture("v2/timelines/timeline.json"),
+            headers: {
+              "Content-Type" => "application/json"
+            }
+          )
+      end
+
+      it { expect(response.status).to eq(200) }
+      it { expect(response.parse).to be_a(Hash) }
+    end
+
+    context "with filter" do
+      subject(:response) { client.own_timeline(filter: "likes") }
+
+      before do
+        stub_request(:get, "#{base_url}/v2/timelines/filter/likes")
+          .with(headers: { "Authorization" => "Bearer #{token}" })
+          .to_return(
+            body: file_fixture("v2/timelines/timeline.json"),
+            headers: {
+              "Content-Type" => "application/json"
+            }
+          )
+      end
+
+      it { expect(response.status).to eq(200) }
+      it { expect(response.parse).to be_a(Hash) }
+    end
+  end
+
+  describe "#timeline" do
+    subject(:response) { client.timeline("dreikanter") }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/timelines/dreikanter")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/timelines/timeline.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#comments_timeline" do
+    subject(:response) { client.comments_timeline("dreikanter") }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/timelines/dreikanter/comments")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/timelines/timeline.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
+    end
+
+    it { expect(response.status).to eq(200) }
+    it { expect(response.parse).to be_a(Hash) }
+  end
+
+  describe "#likes_timeline" do
+    subject(:response) { client.likes_timeline("dreikanter") }
+
+    before do
+      stub_request(:get, "#{base_url}/v2/timelines/dreikanter/likes")
+        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .to_return(
+          body: file_fixture("v2/timelines/timeline.json"),
+          headers: { "Content-Type" => "application/json" }
         )
     end
 
