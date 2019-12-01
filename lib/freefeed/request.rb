@@ -12,12 +12,11 @@ module Freefeed
     param :request_method
     param :path
     param :options, optional: true, default: -> { {} }
-    option :auth, optional: true, default: -> { true }
 
     def call
       response = http_client
         .headers(headers)
-        .public_send(request_method, uri, request_params)
+        .public_send(request_method, uri, **request_params)
 
       error = Freefeed::Error.for(response)
       raise(error) if error
@@ -47,7 +46,7 @@ module Freefeed
     end
 
     def authenticate?
-      auth && !!client.token
+      !!(options[:auth] && client.token)
     end
 
     def user_agent

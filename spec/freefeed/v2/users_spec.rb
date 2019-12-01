@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Freefeed::Client do
+describe Freefeed::V2::Users do
   include_context "client"
 
   describe "#whoami" do
@@ -18,7 +18,7 @@ describe Freefeed::Client do
             }
           )
           .to_return(
-            body: file_fixture("whoami.json"),
+            body: file_fixture("v2/users/whoami.json"),
             headers: {
               "Content-Type" => "application/json"
             }

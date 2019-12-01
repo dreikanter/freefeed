@@ -12,7 +12,7 @@ module Freefeed
       end
 
       def everything
-        request(:get, "/v2/everything", auth: false)
+        request(:get, "/v2/everything")
       end
     end
   end

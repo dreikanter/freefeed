@@ -17,7 +17,7 @@ describe Freefeed::V2::Timelines do
           }
         )
         .to_return(
-          body: file_fixture("best_of.json"),
+          body: file_fixture("v2/timelines/best_of.json"),
           headers: {
             "Content-Type" => "application/json"
           }
@@ -39,7 +39,7 @@ describe Freefeed::V2::Timelines do
           }
         )
         .to_return(
-          body: file_fixture("everything.json"),
+          body: file_fixture("v2/timelines/everything.json"),
           headers: {
             "Content-Type" => "application/json"
           }
