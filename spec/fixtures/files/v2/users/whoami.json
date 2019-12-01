@@ -1,7 +1,16 @@
 {
-  "users": {},
-  "subscribers": [],
-  "subscriptions": [],
-  "requests": [],
-  "managedGroups": []
+  "users": {
+  },
+  "subscribers": [
+
+  ],
+  "subscriptions": [
+
+  ],
+  "requests": [
+
+  ],
+  "managedGroups": [
+
+  ]
 }

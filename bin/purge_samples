@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "pry"
+
+PATH = File.join(File.expand_path("..", __dir__), "spec/fixtures/files")
+
+def purge_user(data, index)
+  data["username"] = "user#{index}"
+  data["screenName"] = "User ##{index}"
+  data["description"] = "Sample description"
+end
+
+def purge_content(data)
+  data["body"] = "Sample content"
+end
+
+Dir.glob("#{PATH}/**/*.json").each do |file_name|
+  backup_copy = "#{file_name}.bak"
+  FileUtils.rm_rf(backup_copy)
+  FileUtils.mv(file_name, backup_copy)
+
+  data = JSON.parse(File.read(backup_copy))
+
+  (data["users"] || []).each_with_index { |user, index| purge_user(user, index) }
+  (data["admins"] || []).each_with_index { |user, index| purge_user(user, index) }
+
+  (data["posts"] || []).each_with_index { |entity| purge_content(entity) }
+  (data["comments"] || []).each_with_index { |entity| purge_content(entity) }
+
+  File.open(file_name, "wt").write(JSON.pretty_generate(data))
+end

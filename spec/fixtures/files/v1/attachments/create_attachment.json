@@ -20,16 +20,17 @@
   "admins": [
     {
       "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
-      "username": "dreikanter",
+      "username": "user0",
       "type": "user",
-      "screenName": "here and meow",
+      "screenName": "User #0",
       "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
       "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
       "updatedAt": "1574967675390",
       "isPrivate": "0",
       "isProtected": "0",
       "administrators": [
-        {}
+        {
+        }
       ],
       "statistics": {
         "posts": "433",
@@ -37,22 +38,23 @@
         "comments": "1487",
         "subscribers": "95",
         "subscriptions": "155"
-      }
+      },
+      "description": "Sample description"
     }
   ],
   "users": [
     {
       "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
-      "username": "dreikanter",
+      "username": "user0",
       "type": "user",
-      "screenName": "here and meow",
+      "screenName": "User #0",
       "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
       "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
       "createdAt": "1430729636376",
       "updatedAt": "1574967675390",
       "isPrivate": "0",
       "isProtected": "0",
-      "description": "Появилась долгожданная возможность написать что-нибудь в заголовке своего аккаунта! Ура! Обязательно сюда что-нибудь напишу.",
+      "description": "Sample description",
       "statistics": {
         "posts": "433",
         "likes": "1123",
