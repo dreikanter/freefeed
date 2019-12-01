@@ -1,0 +1,68 @@
+{
+  "attachments": {
+    "id": "a66b9354-3755-4981-b9fe-42526582b5b0",
+    "fileName": "100x100.png",
+    "fileSize": 255,
+    "url": "https://unstable-media.freefeed.net/attachments/a66b9354-3755-4981-b9fe-42526582b5b0.png",
+    "thumbnailUrl": "https://unstable-media.freefeed.net/attachments/a66b9354-3755-4981-b9fe-42526582b5b0.png",
+    "imageSizes": {
+      "o": {
+        "w": 100,
+        "h": 100,
+        "url": "https://unstable-media.freefeed.net/attachments/a66b9354-3755-4981-b9fe-42526582b5b0.png"
+      }
+    },
+    "mediaType": "image",
+    "createdAt": 1575202339661,
+    "updatedAt": 1575202339661,
+    "createdBy": "69efd024-ab75-4652-aa8f-350be3ef8fc4"
+  },
+  "admins": [
+    {
+      "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
+      "username": "dreikanter",
+      "type": "user",
+      "screenName": "here and meow",
+      "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
+      "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
+      "updatedAt": "1574967675390",
+      "isPrivate": "0",
+      "isProtected": "0",
+      "administrators": [
+        {}
+      ],
+      "statistics": {
+        "posts": "433",
+        "likes": "1123",
+        "comments": "1487",
+        "subscribers": "95",
+        "subscriptions": "155"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
+      "username": "dreikanter",
+      "type": "user",
+      "screenName": "here and meow",
+      "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
+      "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
+      "createdAt": "1430729636376",
+      "updatedAt": "1574967675390",
+      "isPrivate": "0",
+      "isProtected": "0",
+      "description": "Появилась долгожданная возможность написать что-нибудь в заголовке своего аккаунта! Ура! Обязательно сюда что-нибудь напишу.",
+      "statistics": {
+        "posts": "433",
+        "likes": "1123",
+        "comments": "1487",
+        "subscribers": "95",
+        "subscriptions": "155"
+      },
+      "administrators": [
+        "69efd024-ab75-4652-aa8f-350be3ef8fc4"
+      ]
+    }
+  ]
+}
