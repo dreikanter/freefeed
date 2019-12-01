@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email = ["alex.musayev@gmail.com"].freeze
 
   spec.summary = "Freefeed API wrapper"
-  spec.description = "Freefeed API wrapper"
+  spec.description = spec.summary
   spec.homepage = "https://github.com/dreikanter/freefeed"
   spec.license = "MIT"
 
