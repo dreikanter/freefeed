@@ -34,19 +34,10 @@ module Freefeed
     end
 
     def headers
-      return common_headers unless authenticate?
-      common_headers.merge(authorization: "Bearer #{client.token}")
-    end
-
-    def common_headers
       {
         accept: "*/*",
         user_agent: "#{Freefeed::Client.name}/#{Freefeed::VERSION}"
       }
-    end
-
-    def authenticate?
-      !!(options[:auth] && client.token)
     end
 
     def user_agent

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "freefeed/request"
+require "freefeed/utils"
 
 module Freefeed
   module V1

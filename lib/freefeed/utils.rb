@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
+require "freefeed/request"
+require "freefeed/authenticated_request"
+
 module Freefeed
   module Utils
     def authenticated_request(request_method, path, params = {})
-      perform_request(request_method, path, json: params, auth: true)
+      AuthenticatedRequest.new(self, request_method, path, params).call
     end
 
     def request(request_method, path, params = {})
-      perform_request(request_method, path, json: params, auth: false)
-    end
-
-    private
-
-    def perform_request(request_method, path, options)
-      Freefeed::Request.new(self, request_method, path, options).call
+      Request.new(self, request_method, path, params).call
     end
   end
 end

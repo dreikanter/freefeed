@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "freefeed/request"
+require "freefeed/utils"
 
 # SEE: https://github.com/FreeFeed/freefeed-server/blob/stable/app/routes/api/v2/UsersRoute.js
 module Freefeed
