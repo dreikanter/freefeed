@@ -10,7 +10,7 @@ describe Freefeed::V2::Timelines do
 
     before do
       stub_request(:get, "#{base_url}/v2/bestof")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/timelines/best_of.json"),
           headers: { "Content-Type" => "application/json" }
@@ -42,7 +42,7 @@ describe Freefeed::V2::Timelines do
 
       before do
         stub_request(:get, "#{base_url}/v2/timelines/home")
-          .with(headers: { "Authorization" => "Bearer #{token}" })
+          .with(auth_headers)
           .to_return(
             body: file_fixture("v2/timelines/timeline.json"),
             headers: {
@@ -60,7 +60,7 @@ describe Freefeed::V2::Timelines do
 
       before do
         stub_request(:get, "#{base_url}/v2/timelines/filter/likes")
-          .with(headers: { "Authorization" => "Bearer #{token}" })
+          .with(auth_headers)
           .to_return(
             body: file_fixture("v2/timelines/timeline.json"),
             headers: {
@@ -79,7 +79,7 @@ describe Freefeed::V2::Timelines do
 
     before do
       stub_request(:get, "#{base_url}/v2/timelines/dreikanter")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/timelines/timeline.json"),
           headers: { "Content-Type" => "application/json" }
@@ -95,7 +95,7 @@ describe Freefeed::V2::Timelines do
 
     before do
       stub_request(:get, "#{base_url}/v2/timelines/dreikanter/comments")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/timelines/timeline.json"),
           headers: { "Content-Type" => "application/json" }
@@ -111,7 +111,7 @@ describe Freefeed::V2::Timelines do
 
     before do
       stub_request(:get, "#{base_url}/v2/timelines/dreikanter/likes")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/timelines/timeline.json"),
           headers: { "Content-Type" => "application/json" }

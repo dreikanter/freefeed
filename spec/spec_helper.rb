@@ -38,4 +38,17 @@ RSpec.shared_context "client" do
   let(:token) { ENV["FREEFEED_TOKEN"] || "[Token]" }
   let(:logger) { Logger.new(STDOUT) }
   let(:base_url) { "https://george.freefeed.net" }
+
+  let(:empty_json_response) do
+    {
+      headers: { "Content-Type" => "application/json" },
+      body: {}.to_json
+    }
+  end
+
+  let(:auth_headers) do
+    {
+      headers: { "Authorization" => "Bearer #{token}" }
+    }
+  end
 end

@@ -12,7 +12,7 @@ describe Freefeed::V2::Posts do
 
     before do
       stub_request(:get, "#{base_url}/v2/posts/#{post_id}")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/posts/post.json"),
           headers: { "Content-Type" => "application/json" }
@@ -28,7 +28,7 @@ describe Freefeed::V2::Posts do
 
     before do
       stub_request(:get, "#{base_url}/v2/posts-opengraph/#{post_id}")
-        .with(headers: { "Authorization" => "Bearer #{token}" })
+        .with(auth_headers)
         .to_return(
           body: file_fixture("v2/posts/post_open_graph.html"),
           headers: { "Content-Type" => "text/html" }
