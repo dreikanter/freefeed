@@ -7,7 +7,7 @@ module Freefeed
     module Posts
       include Freefeed::Utils
 
-      def post2(id)
+      def post(id)
         authenticated_request(:get, "/v2/posts/#{id}")
       end
 

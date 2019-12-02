@@ -8,7 +8,7 @@ describe Freefeed::V2::Posts do
   let(:post_id) { "467e9056-69fe-4bcf-b9ff-3ceb319b093e" }
 
   describe "#post" do
-    subject(:response) { client.post2(post_id) }
+    subject(:response) { client.post(post_id) }
 
     before do
       stub_request(:get, "#{base_url}/v2/posts/#{post_id}")
