@@ -21,9 +21,7 @@ describe Freefeed::V1::Attachments do
         )
         .to_return(
           body: file_fixture("v1/attachments/create_attachment.json").read,
-          headers: {
-            "Content-Type" => "application/json"
-          }
+          headers: { "Content-Type" => "application/json" }
         )
     end
 
