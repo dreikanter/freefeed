@@ -7,8 +7,13 @@ module Freefeed
     module Posts
       include Freefeed::Utils
 
-      # get '/v2/posts/:postId'
-      # get '/v2/posts-opengraph/:postId'
+      def post2(id)
+        authenticated_request(:get, "/v2/posts/#{id}")
+      end
+
+      def post_open_graph(id)
+        authenticated_request(:get, "/v2/posts-opengraph/#{id}")
+      end
     end
   end
 end
