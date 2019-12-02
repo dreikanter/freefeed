@@ -7,18 +7,49 @@ module Freefeed
     module Posts
       include Freefeed::Utils
 
-      # post '/v1/posts'
-      # get '/v1/posts/:postId'
-      # put '/v1/posts/:postId'
-      # delete '/v1/posts/:postId'
-      # post '/v1/posts/:postId/like'
-      # post '/v1/posts/:postId/unlike'
-      # post '/v1/posts/:postId/hide'
-      # post '/v1/posts/:postId/unhide'
-      # post '/v1/posts/:postId/save'
-      # delete '/v1/posts/:postId/save'
-      # post '/v1/posts/:postId/disableComments'
-      # post '/v1/posts/:postId/enableComments'
+      def create_post(data)
+        authenticated_request(:post, "/v1/posts", data)
+      end
+
+      def update_post(id, data)
+        authenticated_request(:put, "/v1/posts/#{id}", data)
+      end
+
+      def delete_post(id)
+        authenticated_request(:delete, "/v1/posts/#{id}")
+      end
+
+      def like(id)
+        authenticated_request(:post, "/v1/posts/#{id}/like")
+      end
+
+      def unlike(id)
+        authenticated_request(:post, "/v1/posts/#{id}/unlike")
+      end
+
+      def hide(id)
+        authenticated_request(:post, "/v1/posts/#{id}/hide")
+      end
+
+      def unhide(id)
+        authenticated_request(:post, "/v1/posts/#{id}/unhide")
+      end
+
+      def save(id)
+        authenticated_request(:post, "/v1/posts/#{id}/save")
+      end
+
+      def unsave(id)
+        authenticated_request(:delete, "/v1/posts/#{id}/save")
+      end
+
+      def disable_comments(id)
+        authenticated_request(:post, "/v1/posts/#{id}/disableComments")
+      end
+
+      def enable_comments(id)
+        authenticated_request(:post, "/v1/posts/#{id}/enableComments")
+      end
     end
   end
 end
