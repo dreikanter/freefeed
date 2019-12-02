@@ -7,12 +7,12 @@ module Freefeed
     module Posts
       include Freefeed::Utils
 
-      def create_post(data)
-        authenticated_request(:post, "/v1/posts", data)
+      def create_post(post)
+        authenticated_request(:post, "/v1/posts", post)
       end
 
-      def update_post(id, data)
-        authenticated_request(:put, "/v1/posts/#{id}", data)
+      def update_post(id, post)
+        authenticated_request(:put, "/v1/posts/#{id}", post)
       end
 
       def delete_post(id)

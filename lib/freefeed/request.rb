@@ -30,7 +30,7 @@ module Freefeed
     end
 
     def request_params
-      options[:params] || {}
+      options.slice(:json)
     end
 
     def headers

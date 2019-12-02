@@ -3,11 +3,11 @@
 module Freefeed
   module Utils
     def authenticated_request(request_method, path, params = {})
-      perform_request(request_method, path, params: params, auth: true)
+      perform_request(request_method, path, json: params, auth: true)
     end
 
     def request(request_method, path, params = {})
-      perform_request(request_method, path, params: params, auth: false)
+      perform_request(request_method, path, json: params, auth: false)
     end
 
     private

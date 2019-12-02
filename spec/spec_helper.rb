@@ -39,11 +39,15 @@ RSpec.shared_context "client" do
   let(:logger) { Logger.new(STDOUT) }
   let(:base_url) { "https://george.freefeed.net" }
 
-  let(:empty_json_response) do
+  def json_response(body)
     {
       headers: { "Content-Type" => "application/json" },
-      body: {}.to_json
+      body: body
     }
+  end
+
+  let(:empty_json_response) do
+    json_response({}.to_json)
   end
 
   let(:auth_headers) do
