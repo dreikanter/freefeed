@@ -14,7 +14,7 @@ describe Freefeed::V2::Posts do
       stub_request(:get, "#{base_url}/v2/posts/#{post_id}")
         .with(headers: { "Authorization" => "Bearer #{token}" })
         .to_return(
-          body: file_fixture("v1/posts/post.json"),
+          body: file_fixture("v2/posts/post.json"),
           headers: { "Content-Type" => "application/json" }
         )
     end
