@@ -80,4 +80,28 @@ describe Freefeed::V1::Posts do
 
     it { expect(response.status).to eq(200) }
   end
+
+  describe "#disable_comments" do
+    subject(:response) { client.disable_comments(own_post_id) }
+
+    before do
+      stub_request(:post, "#{base_url}/v1/posts/#{own_post_id}/disableComments")
+        .with(auth_headers)
+        .to_return(empty_json_response)
+    end
+
+    it { expect(response.status).to eq(200) }
+  end
+
+  describe "#enable_comments" do
+    subject(:response) { client.enable_comments(own_post_id) }
+
+    before do
+      stub_request(:post, "#{base_url}/v1/posts/#{own_post_id}/enableComments")
+        .with(auth_headers)
+        .to_return(empty_json_response)
+    end
+
+    it { expect(response.status).to eq(200) }
+  end
 end
