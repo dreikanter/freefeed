@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require "http"
-require "freefeed/constants"
-require "freefeed/error"
+require "freefeed/request"
 
 module Freefeed
   class AuthenticatedRequest < Request

@@ -35,7 +35,7 @@ module Freefeed
       private
 
       def request_timeline(path, offset)
-        params = offset.positive? ? { offset: offset } : {}
+        params = offset.positive? ? { json: { offset: offset } } : {}
         authenticated_request(:get, "/v2/timelines/#{path}", params)
       end
     end

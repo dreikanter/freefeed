@@ -8,11 +8,11 @@ module Freefeed
       include Freefeed::Utils
 
       def create_post(post)
-        authenticated_request(:post, "/v1/posts", post)
+        authenticated_request(:post, "/v1/posts", json: post)
       end
 
       def update_post(id, post)
-        authenticated_request(:put, "/v1/posts/#{id}", post)
+        authenticated_request(:put, "/v1/posts/#{id}", json: post)
       end
 
       def delete_post(id)
