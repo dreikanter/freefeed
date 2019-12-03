@@ -4,3 +4,8 @@ RSpec.shared_examples "json hash response" do
   it { expect(response.status).to eq(200) }
   it { expect(response.parse).to be_a(Hash) }
 end
+
+RSpec.shared_examples "json array response" do
+  it { expect(response.status).to eq(200) }
+  it { expect(response.parse).to be_a(Array) }
+end

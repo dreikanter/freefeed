@@ -17,8 +17,7 @@ describe Freefeed::V2::Timelines do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#everything" do
@@ -32,8 +31,7 @@ describe Freefeed::V2::Timelines do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#own_timeline" do
@@ -51,8 +49,7 @@ describe Freefeed::V2::Timelines do
           )
       end
 
-      it { expect(response.status).to eq(200) }
-      it { expect(response.parse).to be_a(Hash) }
+      it_should_behave_like("json hash response")
     end
 
     context "with filter" do
@@ -69,8 +66,7 @@ describe Freefeed::V2::Timelines do
           )
       end
 
-      it { expect(response.status).to eq(200) }
-      it { expect(response.parse).to be_a(Hash) }
+      it_should_behave_like("json hash response")
     end
   end
 
@@ -86,8 +82,7 @@ describe Freefeed::V2::Timelines do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#comments_timeline" do
@@ -102,8 +97,7 @@ describe Freefeed::V2::Timelines do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#likes_timeline" do
@@ -118,7 +112,6 @@ describe Freefeed::V2::Timelines do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 end

@@ -33,8 +33,7 @@ describe Freefeed::V1::Posts do
         .to_return(json_response(file_fixture("v1/posts/create.json")))
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#update_post" do
@@ -59,8 +58,7 @@ describe Freefeed::V1::Posts do
         .to_return(json_response(file_fixture("v1/posts/update.json")))
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#delete_post" do
@@ -69,10 +67,13 @@ describe Freefeed::V1::Posts do
     before do
       stub_request(:delete, "#{base_url}/v1/posts/#{own_post_id}")
         .with(auth_headers)
-        .to_return(body: file_fixture("v1/posts/delete.json"))
+        .to_return(
+          body: file_fixture("v1/posts/delete.json"),
+          headers: { "Content-Type" => "application/json" }
+        )
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#like" do
@@ -84,7 +85,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#unlike" do
@@ -96,7 +97,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#hide" do
@@ -108,7 +109,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#unhide" do
@@ -120,7 +121,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#save" do
@@ -132,7 +133,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#unsave" do
@@ -144,7 +145,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#disable_comments" do
@@ -156,7 +157,7 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#enable_comments" do
@@ -168,6 +169,6 @@ describe Freefeed::V1::Posts do
         .to_return(empty_json_response)
     end
 
-    it { expect(response.status).to eq(200) }
+    it_should_behave_like("json hash response")
   end
 end

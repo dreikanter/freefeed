@@ -19,8 +19,7 @@ describe Freefeed::V2::Posts do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#post_open_graph" do

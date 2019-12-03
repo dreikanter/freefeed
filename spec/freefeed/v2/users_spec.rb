@@ -23,8 +23,7 @@ describe Freefeed::V2::Users do
           )
       end
 
-      it { expect(response.status).to eq(200) }
-      it { expect(response.parse).to be_a(Hash) }
+      it_should_behave_like("json hash response")
     end
 
     context "when token is not valid" do
@@ -51,8 +50,7 @@ describe Freefeed::V2::Users do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Array) }
+    it_should_behave_like("json array response")
   end
 
   describe "#unread_directs_number" do
@@ -67,8 +65,7 @@ describe Freefeed::V2::Users do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#unread_notifications_number" do
@@ -83,8 +80,7 @@ describe Freefeed::V2::Users do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#mark_all_directs_as_read" do
@@ -99,8 +95,7 @@ describe Freefeed::V2::Users do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
   describe "#mark_all_notifications_as_read" do
@@ -115,8 +110,7 @@ describe Freefeed::V2::Users do
         )
     end
 
-    it { expect(response.status).to eq(200) }
-    it { expect(response.parse).to be_a(Hash) }
+    it_should_behave_like("json hash response")
   end
 
 end
