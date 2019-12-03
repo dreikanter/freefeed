@@ -17,12 +17,12 @@ describe Freefeed::V1::Posts do
     let(:post) do
       {
         post: {
-          "body" => "Sample post",
-          "attachments" => [attachment_id]
+          body: "Sample post",
+          attachments: [attachment_id]
         },
         meta: {
-          "feeds" => [own_feed_name, group_feed_name],
-          "commentsDisabled" => false
+          feeds: [own_feed_name, group_feed_name],
+          commentsDisabled: false
         }
       }
     end
@@ -42,12 +42,12 @@ describe Freefeed::V1::Posts do
     let(:post) do
       {
         post: {
-          "body" => "Updated post",
-          "attachments" => []
+          body: "Updated post",
+          attachments: []
         },
         meta: {
-          "feeds" => [own_feed_name],
-          "commentsDisabled" => true
+          feeds: [own_feed_name],
+          commentsDisabled: true
         }
       }
     end
