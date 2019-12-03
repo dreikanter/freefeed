@@ -112,5 +112,4 @@ describe Freefeed::V2::Users do
 
     it_should_behave_like("json hash response")
   end
-
 end
