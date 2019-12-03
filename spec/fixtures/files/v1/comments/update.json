@@ -1,0 +1,52 @@
+{
+  "comments": {
+    "id": "5dd3c45c-454f-409a-af23-a09d73cc1622",
+    "body": "Updated comment",
+    "createdAt": "1575384736449",
+    "createdBy": "69efd024-ab75-4652-aa8f-350be3ef8fc4"
+  },
+  "users": [
+    {
+      "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
+      "username": "dreikanter",
+      "screenName": "here and meow",
+      "isPrivate": "0",
+      "isProtected": "0",
+      "createdAt": "1430729636376",
+      "updatedAt": "1574967675390",
+      "type": "user",
+      "description": "Появилась долгожданная возможность написать что-нибудь в заголовке своего аккаунта! Ура! Обязательно сюда что-нибудь напишу.",
+      "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
+      "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
+      "statistics": {
+        "posts": "435",
+        "likes": "1123",
+        "comments": "1492",
+        "subscribers": "95",
+        "subscriptions": "155"
+      }
+    }
+  ],
+  "admins": [
+    {
+      "id": "69efd024-ab75-4652-aa8f-350be3ef8fc4",
+      "username": "dreikanter",
+      "screenName": "here and meow",
+      "isPrivate": "0",
+      "isProtected": "0",
+      "createdAt": "1430729636376",
+      "updatedAt": "1574967675390",
+      "type": "user",
+      "description": "Появилась долгожданная возможность написать что-нибудь в заголовке своего аккаунта! Ура! Обязательно сюда что-нибудь напишу.",
+      "profilePictureLargeUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_75.jpg",
+      "profilePictureMediumUrl": "https://unstable-media.freefeed.net/profilepics/207197df-22f4-4010-aa2c-d5b4e98aba03_50.jpg",
+      "statistics": {
+        "posts": "435",
+        "likes": "1123",
+        "comments": "1492",
+        "subscribers": "95",
+        "subscriptions": "155"
+      }
+    }
+  ]
+}

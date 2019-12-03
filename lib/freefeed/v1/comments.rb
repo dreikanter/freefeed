@@ -2,13 +2,20 @@
 
 require "freefeed/utils"
 
-# SEE: https://github.com/FreeFeed/freefeed-server/blob/stable/app/routes/api/v1/CommentsRoute.js
 module Freefeed
   module V1
     module Comments
-      # post '/v1/comments'
-      # put '/v1/comments/:commentId'
-      # delete '/v1/comments/:commentId'
+      def create_comment(comment)
+        authenticated_request(:post, "/v1/comments", json: comment)
+      end
+
+      def update_comment(id, comment)
+        authenticated_request(:put, "/v1/comments/#{id}", json: comment)
+      end
+
+      def delete_comment(id)
+        authenticated_request(:delete, "/v1/comments/#{id}")
+      end
     end
   end
 end
