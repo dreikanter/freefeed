@@ -47,7 +47,7 @@ module Freefeed
     # TODO: Timeout settinf
     # TODO: Proxy setting
     def http_client
-      HTTP.use(logging: { logger: client.logger })
+      HTTP.use(client.http_features)
     end
   end
 end

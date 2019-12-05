@@ -22,7 +22,7 @@ module Freefeed
     include Freefeed::V2::Users
 
     option :token
-    option :logger, default: -> { Freefeed::LOGGER }
     option :base_url, default: -> { Freefeed::BASE_URL }
+    option :http_features, default: -> { {} }
   end
 end

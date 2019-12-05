@@ -5,15 +5,15 @@ RSpec.shared_context "client" do
 
   let(:params) do
     {
-      logger: logger,
       token: token,
-      base_url: base_url
+      base_url: base_url,
+      http_features: http_features
     }
   end
 
   let(:token) { ENV["FREEFEED_TOKEN"] || "[Token]" }
-  let(:logger) { Logger.new(STDOUT) }
   let(:base_url) { "https://george.freefeed.net" }
+  let(:http_features) { {} }
 
   def json_response(body)
     {

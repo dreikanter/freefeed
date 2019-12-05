@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "dry-initializer", ">= 3.0.2"
-  spec.add_dependency "http", ">= 4.2.0"
+  spec.add_dependency "http", "~> 3.3.0"
   spec.add_dependency "mimemagic", ">= 0.3.3"
 
   spec.add_development_dependency "bundler", "~> 2.0"

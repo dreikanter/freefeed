@@ -7,7 +7,7 @@ describe "#new" do
 
   context "when using explicit configuration" do
     it { expect(client.token).to eq(token) }
-    it { expect(client.logger).to eq(logger) }
+    it { expect(client.http_features).to eq(http_features) }
     it { expect(client.base_url).to eq(base_url) }
   end
 
@@ -15,7 +15,7 @@ describe "#new" do
     let(:params) { { token: token } }
 
     it { expect(client.token).to eq(token) }
-    it { expect(client.logger).to be_a(Logger) }
+    it { expect(client.http_features).to be_a(Hash) }
     it { expect(client.base_url).to eq("https://freefeed.net") }
   end
 
